@@ -245,6 +245,5 @@ def health():
     return jsonify({"status": "ok", "links_discovered": len(DISCOVERED_LINKS) // 2})
 
 
-if __name__ == "__main__":
-    discover_links()
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+# This runs on startup regardless of whether using gunicorn or direct python
+discover_links()
